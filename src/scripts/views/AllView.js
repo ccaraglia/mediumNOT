@@ -51,7 +51,7 @@ var Msg = React.createClass({
     },
 
     render: function() {
-        console.log(this.props.record.get('user').email)
+console.log(this.props.record)
         return (
             <div className="pst">
                 <div className="msgDeets">

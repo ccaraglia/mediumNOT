@@ -44,10 +44,10 @@ const app = function() {
 
 
         showMyPsts: function(){
-            var coll = new MyPstCollection()
-            coll.fetch()
-                ReactDOM.render(<AllView coll = {coll} />, document.querySelector('.container'))
-                console.log(coll)
+            var mycoll = new MyPstCollection()
+            mycoll.fetch()
+                ReactDOM.render(<AllView coll = {mycoll} />, document.querySelector('.container'))
+                console.log(mycoll)
         },
 
 

@@ -5,7 +5,7 @@ let helpers = require('../config/helpers.js')
 let User = require('../db/schema.js').User
 let Post = require('../db/schema.js').Post
 
-
+//read many
 apiRouter.get('/posts', function(req, res){
     Post.find(req.query, function(err, results){
       if(err) return res.json(err)
@@ -17,9 +17,10 @@ apiRouter.get('/posts', function(req, res){
   apiRouter.get('/myPosts',function(request,response) {
   //first argument gives the criteria (WHICH msgs do i want)
   //
+  console.log(user)
   console.log(request)
   if (request.user) { // if there is currently a logged-in user
-    Post.find({by:request.user.email}, function(err,records) {
+    Post.find({'user' : 'request.user.email'}, function(err,records) {
       if (err) {
         response.json({
           error: err
@@ -36,6 +37,7 @@ apiRouter.get('/posts', function(req, res){
     })
   }
 })
+
   //create one
   .post('/posts', function(req, res){
     let newPost = new Post(req.body)

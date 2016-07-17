@@ -7,7 +7,7 @@ import LoginView from './views/LoginView'
 import EditorView from './views/editorView'
 import AllView from './views/AllView'
 import {PstCollection} from './models/models'
-
+import {MyPstCollection} from './models/models'
 export const APP_NAME = 'mediumNOT'
 
 const app = function() {
@@ -16,8 +16,8 @@ const app = function() {
         const BlogRouter = Backbone.Router.extend({
 
             routes:{
-                    "posts/readAll": "showPsts",
-                    "posts/readMine": "showMyPstss",
+                    "posts/readAll": "showHome",
+                    "posts/readMine": "showMyPsts",
                     "posts/write": "showEditor",
                     "home": "showHome",
                     "login": "showLogin",
@@ -44,7 +44,10 @@ const app = function() {
 
 
         showMyPsts: function(){
-                ReactDOM.render(<MyView />, document.querySelector('.container'))
+            var coll = new MyPstCollection()
+            coll.fetch()
+                ReactDOM.render(<AllView coll = {coll} />, document.querySelector('.container'))
+                console.log(coll)
         },
 
 
@@ -61,6 +64,7 @@ const app = function() {
                 console.log(err)
             })
             ReactDOM.render(<AllView coll = {coll} />, document.querySelector('.container'))
+            console.log(coll)
         },
 
 

@@ -51,13 +51,15 @@ var Msg = React.createClass({
     },
 
     render: function() {
+        console.log(this.props.record.get('user').email)
         return (
             <div className="pst">
                 <div className="msgDeets">
-                    <p>to: {this.props.record.get('to')}</p>
-                    <p>from: {this.props.record.get('from')}</p>
-                    <p>{this.props.record.get('content')}</p>
+                    <p>title: {this.props.record.get('title')}</p>
+                    <p>content: {this.props.record.get('body')}</p>
+                    <p>by: {this.props.record.get('user').email} </p>
                 </div>
+
                 <button onClick={this._removeModel} >X</button>
             </div>
             )

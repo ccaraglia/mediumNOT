@@ -31,7 +31,6 @@ const ComposeForm = React.createClass({
         // makes a post request to the url set as a property on the model.
         // all of the model's attributes will comprise the body of the request.
         newPst.save()
-        console.log(UserModel.getCurrentUser())
         console.log(newPst)
     },
 

@@ -12,7 +12,7 @@ const postsSchema = new Schema({
   body:      { type: String, required: [true, "No body-content, pls add"] },
   user:      {
                 email: { type: String, required: [true, "No user email supplied"] },
-                _id:   { type: Number, required: true }
+                _id:   { type: String, required: true }
              }
 })
 
@@ -24,7 +24,7 @@ const usersSchema = new Schema({
   email:     { type: String, required: true },
   password:  { type: String, required: true },
   // x..x..x..x..x..x..x..x..x..x..x..x..x..x..x..x..x..x..x..x..x..x
-  
+
    // example of optional fields
   name:      { type: String },
   createdAt: { type: Date, default: Date.now }

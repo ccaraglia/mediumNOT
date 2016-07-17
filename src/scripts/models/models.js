@@ -18,6 +18,19 @@ export const PstCollection = Backbone.Collection.extend({
     url: "/api/posts"
 })
 
+export const MyPstModel = Backbone.Model.extend({
+    url: "/api/myPosts",
+    // warning: behind-the-scenes magic
+    // when you sync with the server, read the ._id property
+    // off the returned record, and assign it into your .id
+    // property
+    idAttribute: "_id"
+})
+
+export const MyPstCollection = Backbone.Collection.extend({
+    model:MyPstModel,
+    url: "/api/myPosts"
+})
 
 export const UserModel = {
 	register: function(email,password) {

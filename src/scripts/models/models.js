@@ -2,7 +2,24 @@ import Backbone from 'backbone'
 import $ from 'jquery'
 import {APP_NAME} from '../app'
 
-export const UserModel = Backbone.Model.extend({
+
+
+export const PstModel = Backbone.Model.extend({
+    url: "/api/posts",
+    // warning: behind-the-scenes magic
+    // when you sync with the server, read the ._id property
+    // off the returned record, and assign it into your .id
+    // property
+    idAttribute: "_id"
+})
+
+export const PstCollection = Backbone.Collection.extend({
+    model: PstModel,
+    url: "/api/posts"
+})
+
+
+export const UserModel = {
 	register: function(email,password) {
 		return $.ajax({
 			type: 'post',
@@ -31,4 +48,4 @@ export const UserModel = Backbone.Model.extend({
 	getCurrentUser: function() {
 		return JSON.parse(localStorage[APP_NAME])
 	}
-})
+}

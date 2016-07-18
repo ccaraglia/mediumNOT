@@ -30,7 +30,7 @@ var AllView = React.createClass({
 
 var Inbox = React.createClass({
     _makeMsg: function(record) {
-        return <Msg key={record.id} record={record} />
+        return <Pst key={record.id} record={record} />
     },
 
     render: function() {
@@ -42,7 +42,7 @@ var Inbox = React.createClass({
     }
 })
 
-var Msg = React.createClass({
+var Pst = React.createClass({
 
     _removeModel: function() {
         this.props.record.destroy({
@@ -51,13 +51,13 @@ var Msg = React.createClass({
     },
 
     render: function() {
-console.log(this.props.record)
+console.log(this.props)
         return (
             <div className="pst">
                 <div className="msgDeets">
                     <p>title: {this.props.record.get('title')}</p>
                     <p>content: {this.props.record.get('body')}</p>
-                    <p>by: {this.props.record.get('user').email} </p>
+                   <p>by: {this.props.record.get('email')} </p>
                 </div>
 
                 <button onClick={this._removeModel} >X</button>

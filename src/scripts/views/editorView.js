@@ -23,15 +23,13 @@ const ComposeForm = React.createClass({
         var newPst = new PstModel({
             title: e.currentTarget.title.value,
             body: e.currentTarget.content.value,
-            user: {
-                email: UserModel.getCurrentUser().email,
-            _id:UserModel.getCurrentUser()._id
-        }
+            email: UserModel.getCurrentUser().email
+
         })
         // makes a post request to the url set as a property on the model.
         // all of the model's attributes will comprise the body of the request.
         newPst.save()
-        console.log(newPst)
+        console.log(newPst.email)
     },
 
     render: function() {

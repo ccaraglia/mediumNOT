@@ -17,10 +17,10 @@ apiRouter.get('/posts', function(req, res){
   apiRouter.get('/myPosts',function(request,response) {
   //first argument gives the criteria (WHICH msgs do i want)
   //
-  console.log(user)
-  console.log(request)
-  if (request.user) { // if there is currently a logged-in user
-    Post.find({'user' : 'request.user.email'}, function(err,records) {
+
+ // if (request.user) { // if there is currently a logged-in user
+  console.log('this is the >>>>' + request.user.email)
+    Post.find({email : request.user.email}, function(err,records) {
       if (err) {
         response.json({
           error: err
@@ -30,12 +30,7 @@ apiRouter.get('/posts', function(req, res){
         response.json(records)
       }
     })
-  }
-  else {
-    response.status(404).json({
-      error: 'no one is logged in'
-    })
-  }
+
 })
 
   //create one

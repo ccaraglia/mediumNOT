@@ -11,10 +11,7 @@ const postsSchema = new Schema({
   subtitle:  { type: String },
   body:      { type: String, required: [true, "No body-content, pls add"] },
 
-  user:      {
-                email: { type: String, required: [true, "No user email supplied"] },
-                _id:   { type: String, required: true }
-             }
+  email:      { type: String, required: [true, "No user email supplied"] }
 })
 
 // ----------------------
